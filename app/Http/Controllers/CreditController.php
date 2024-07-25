@@ -3,21 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Credit; // Credit 모델을 사용하기 위해 추가
+use App\Models\Credit;
 
 class CreditController extends Controller
 {
     public function store(Request $request)
     {
         try {
-            // Validate incoming request
             $validatedData = $request->validate([
                 'amount' => 'required|numeric',
                 'orderName' => 'required|string',
                 'customerName' => 'required|string',
             ]);
 
-            // Store validated data in database using Credit 모델
             $credit = Credit::create([
                 'amount' => $validatedData['amount'],
                 'order_name' => $validatedData['orderName'],
@@ -32,4 +30,35 @@ class CreditController extends Controller
             return response()->json(['error' => '서버 오류가 발생했습니다.'], 500);
         }
     }
+
+    public function datab(Request $request)
+{
+    \Log::info('Request Data: ', $request->all());
+
+    try {
+        $validatedData = $request->validate([
+            'customerName' => 'required|string',
+        ]);
+
+        $credits = Credit::where('customer_name', $validatedData['customerName'])->get();
+
+        if ($credits->isEmpty()) {
+            return response()->json([
+                'message' => 'No payment information found for this user.'
+            ], 404);
+        }
+
+        return response()->json([
+            'data' => $credits
+        ], 200);
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        \Log::error('Validation error: ' . $e->getMessage());
+        return response()->json(['error' => 'Invalid input data.'], 422);
+    } catch (\Exception $e) {
+        \Log::error('Error retrieving payment information: ' . $e->getMessage());
+        return response()->json(['error' => 'Server error occurred.'], 500);
+    }
+}
+
+
 }
