@@ -26,6 +26,10 @@ Route::post('/changeId', [UserController::class, 'changeId']);
 
 Route::post('/changePw', [UserController::class, 'changePw']);
 
+Route::post('/changeImage', [UserController::class, 'changeImage']);
+
+Route::post('/changeAll', [UserController::class, 'changeAll']);
+
 Route::post('/remove', [UserController::class, 'remove']);
 
 Route::post('/mailSubmit', [MailSendController::class, 'mailSubmit']);
