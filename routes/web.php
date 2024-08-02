@@ -8,6 +8,7 @@ use App\Http\Controllers\CreditController;
 use App\Http\Controllers\MailSendController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\KakaoAuthController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,3 +38,7 @@ Route::post('/mailSubmit', [MailSendController::class, 'mailSubmit']);
 Route::post('/searchL', [SearchController::class, 'searchL']);
 
 Route::post('/searchP', [SearchController::class, 'searchP']);
+
+Route::post('auth/kakao', [KakaoAuthController::class, 'authenticate']);
+
+Route::get('/auth/kakao/callback', [KakaoAuthController::class, 'handleCallback']);

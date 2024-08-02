@@ -13,10 +13,11 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         try {
-            if ($request->has('name') && $request->has('email') && $request->has('identity') && $request->has('password')) {
+            if ($request->has('name') && $request->has('email') && $request->has('phone') && $request->has('identity') && $request->has('password')) {
                 $user = User::create([
                     'name' => $request->input('name'),
                     'email' => $request->input('email'),
+                    'phone' => $request->input('phone'),
                     'identity' => $request->input('identity'),
                     'password' => Hash::make($request->input('password')),
                 ]);
