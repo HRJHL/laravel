@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use GuzzleHttp\Client;
+use App\Models\User; // Import the User model
+use Illuminate\Support\Facades\DB;
 
-class KakaoAuthController extends Controller
+class KakaoController extends Controller
 {
     public function authenticate(Request $request)
     {
@@ -24,19 +24,30 @@ class KakaoAuthController extends Controller
 
         $userInfo = json_decode($response->getBody()->getContents(), true);
 
-        // 사용자 정보 저장 및 로그인 처리
-        $user = User::where('kakao_id', $userInfo['id'])->first();
-        if (!$user) {
-            $user = User::create([
-                'name' => $userInfo['properties']['nickname'],
-                'email' => $userInfo['kakao_account']['email'],
-                'kakao_id' => $userInfo['id'],
+        if (isset($userInfo['id'])) {
+            // 사용자 정보가 성공적으로 수신되었을 때
+            $userId = $userInfo['id'];
+            $nickname = $userInfo['properties']['nickname'] ?? null;
+
+            // 사용자 정보를 데이터베이스에 저장
+            $user = User::updateOrCreate(
+                ['email' => $userId,
+                'name' => $nickname, 
+                'identity' => $userId,
+                'password' => $userId]
+            );
+
+            return response()->json([
+                'success' => true,
+                'user' => [
+                    'email' => $user->email,
+                    'name' => $user->name,
+                ]
             ]);
+        } else {
+            // 사용자 정보 수신 실패
+            return response()->json(['success' => false], 401);
         }
-
-        Auth::login($user);
-
-        return response()->json(['user' => $user]);
     }
 
     public function handleCallback(Request $request)
@@ -57,8 +68,7 @@ class KakaoAuthController extends Controller
         $tokenInfo = json_decode($response->getBody()->getContents(), true);
         $accessToken = $tokenInfo['access_token'];
 
-        // 액세스 토큰을 사용하여 사용자 정보를 요청하고 로그인 처리
+        // 액세스 토큰을 사용하여 사용자 정보를 요청하고 성공 여부만 반환
         return $this->authenticate(new Request(['access_token' => $accessToken]));
     }
 }
-
