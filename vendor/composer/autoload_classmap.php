@@ -4243,6 +4243,8 @@ return array(
     'SebastianBergmann\\Type\\UnknownType' => $vendorDir . '/sebastian/type/src/type/UnknownType.php',
     'SebastianBergmann\\Type\\VoidType' => $vendorDir . '/sebastian/type/src/type/VoidType.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
+    'SocialiteProviders\\Google\\GoogleExtendSocialite' => $vendorDir . '/socialiteproviders/google/GoogleExtendSocialite.php',
+    'SocialiteProviders\\Google\\Provider' => $vendorDir . '/socialiteproviders/google/Provider.php',
     'SocialiteProviders\\Kakao\\KakaoExtendSocialite' => $vendorDir . '/socialiteproviders/kakao/KakaoExtendSocialite.php',
     'SocialiteProviders\\Kakao\\KakaoProvider' => $vendorDir . '/socialiteproviders/kakao/KakaoProvider.php',
     'SocialiteProviders\\Manager\\Config' => $vendorDir . '/socialiteproviders/manager/src/Config.php',

@@ -17,7 +17,7 @@ class UserController extends Controller
     
         try {
             $validatedData = $request->validate([
-                'email' => 'required|string|email',
+                'email' => 'required|string',
             ]);
     
             $users = User::where('email', $validatedData['email'])->get();

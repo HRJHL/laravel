@@ -16,8 +16,8 @@ class ComposerStaticInitc61ff82cbf0142a401a48a8161e1595a
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
-        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
@@ -88,6 +88,7 @@ class ComposerStaticInitc61ff82cbf0142a401a48a8161e1595a
             'Symfony\\Component\\Console\\' => 26,
             'SocialiteProviders\\Manager\\' => 27,
             'SocialiteProviders\\Kakao\\' => 25,
+            'SocialiteProviders\\Google\\' => 26,
         ),
         'R' => 
         array (
@@ -323,6 +324,10 @@ class ComposerStaticInitc61ff82cbf0142a401a48a8161e1595a
         'SocialiteProviders\\Kakao\\' => 
         array (
             0 => __DIR__ . '/..' . '/socialiteproviders/kakao',
+        ),
+        'SocialiteProviders\\Google\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/socialiteproviders/google',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -4783,6 +4788,8 @@ class ComposerStaticInitc61ff82cbf0142a401a48a8161e1595a
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/type/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/type/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'SocialiteProviders\\Google\\GoogleExtendSocialite' => __DIR__ . '/..' . '/socialiteproviders/google/GoogleExtendSocialite.php',
+        'SocialiteProviders\\Google\\Provider' => __DIR__ . '/..' . '/socialiteproviders/google/Provider.php',
         'SocialiteProviders\\Kakao\\KakaoExtendSocialite' => __DIR__ . '/..' . '/socialiteproviders/kakao/KakaoExtendSocialite.php',
         'SocialiteProviders\\Kakao\\KakaoProvider' => __DIR__ . '/..' . '/socialiteproviders/kakao/KakaoProvider.php',
         'SocialiteProviders\\Manager\\Config' => __DIR__ . '/..' . '/socialiteproviders/manager/src/Config.php',

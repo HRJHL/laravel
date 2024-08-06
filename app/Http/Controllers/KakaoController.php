@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
-use App\Models\User; // Import the User model
+use App\Models\User; 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class KakaoController extends Controller
 {
@@ -71,4 +72,6 @@ class KakaoController extends Controller
         // 액세스 토큰을 사용하여 사용자 정보를 요청하고 성공 여부만 반환
         return $this->authenticate(new Request(['access_token' => $accessToken]));
     }
+
+    
 }

@@ -1022,6 +1022,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'socialiteproviders/google' => array(
+            'pretty_version' => '4.1.0',
+            'version' => '4.1.0.0',
+            'reference' => '1cb8f6fb2c0dd0fc8b34e95f69865663fdf0b401',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../socialiteproviders/google',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'socialiteproviders/kakao' => array(
             'pretty_version' => '4.3.0',
             'version' => '4.3.0.0',

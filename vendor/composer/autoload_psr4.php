@@ -40,6 +40,7 @@ return array(
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'SocialiteProviders\\Manager\\' => array($vendorDir . '/socialiteproviders/manager/src'),
     'SocialiteProviders\\Kakao\\' => array($vendorDir . '/socialiteproviders/kakao'),
+    'SocialiteProviders\\Google\\' => array($vendorDir . '/socialiteproviders/google'),
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Ramsey\\Collection\\' => array($vendorDir . '/ramsey/collection/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src'),

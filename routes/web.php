@@ -9,6 +9,7 @@ use App\Http\Controllers\MailSendController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KakaoController;
+use App\Http\Controllers\GoogleController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,3 +43,6 @@ Route::post('/searchP', [SearchController::class, 'searchP']);
 Route::post('auth/kakao', [KakaoController::class, 'authenticate']);
 
 Route::get('/auth/kakao/callback', [KakaoController::class, 'handleCallback']);
+
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+Route::post('auth/google', [GoogleController::class, 'redirectToGoogle']);
