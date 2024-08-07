@@ -47,7 +47,7 @@ class UserController extends Controller
         try {
             $validatedData = $request->validate([
                 'identity' => 'required|string',
-                'email' => 'required|string|email',
+                'email' => 'required|string',
             ]);
 
             $user = User::where('email', $validatedData['email'])
@@ -88,7 +88,7 @@ class UserController extends Controller
             $validatedData = $request->validate([
                 'password' => 'required|string',
                 'npassword' => 'required|string',
-                'email' => 'required|string|email',
+                'email' => 'required|string',
             ]);
 
             $user = User::where('email', $validatedData['email'])
@@ -137,7 +137,7 @@ class UserController extends Controller
                 'identity' => 'required|string',
                 'password' => 'required|string',
                 'npassword' => 'required|string',
-                'email' => 'required|string|email',
+                'email' => 'required|string',
             ]);
 
             $user = User::where('email', $validatedData['email'])
@@ -209,7 +209,7 @@ class UserController extends Controller
 
     try {
         $validatedData = $request->validate([
-            'email' => 'required|string|email',
+            'email' => 'required|string',
         ]);
 
         $user = User::where('email', $validatedData['email'])->first();

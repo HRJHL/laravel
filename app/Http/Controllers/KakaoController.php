@@ -29,14 +29,15 @@ class KakaoController extends Controller
             // 사용자 정보가 성공적으로 수신되었을 때
             $userId = $userInfo['id'];
             $nickname = $userInfo['properties']['nickname'] ?? null;
-
-            // 사용자 정보를 데이터베이스에 저장
+            $user = User::where('email', $userId)->first();
+            if (!$user) {
             $user = User::updateOrCreate(
                 ['email' => $userId,
                 'name' => $nickname, 
                 'identity' => $userId,
                 'password' => $userId]
             );
+        }
 
             return response()->json([
                 'success' => true,
