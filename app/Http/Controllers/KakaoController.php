@@ -43,6 +43,7 @@ class KakaoController extends Controller
                 'user' => [
                     'email' => $user->email,
                     'name' => $user->name,
+                    'profile_image' => $user->profile_image,
                 ]
             ]);
         } else {

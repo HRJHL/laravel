@@ -44,5 +44,8 @@ Route::post('auth/kakao', [KakaoController::class, 'authenticate']);
 
 Route::get('/auth/kakao/callback', [KakaoController::class, 'handleCallback']);
 
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+
+Route::post('auth/google', [GoogleController::class, 'handleGoogleLogin']);
+
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
-Route::post('auth/google', [GoogleController::class, 'redirectToGoogle']);
