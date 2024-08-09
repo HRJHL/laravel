@@ -8,6 +8,7 @@ use App\Http\Controllers\CreditController;
 use App\Http\Controllers\MailSendController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\KakaoController;
 use App\Http\Controllers\GoogleController;
 
@@ -39,6 +40,10 @@ Route::post('/mailSubmit', [MailSendController::class, 'mailSubmit']);
 Route::post('/searchL', [SearchController::class, 'searchL']);
 
 Route::post('/searchP', [SearchController::class, 'searchP']);
+
+Route::post('/chat', [ChatController::class, 'chat']);
+
+Route::post('/chatM', [ChatController::class, 'chatM']);
 
 Route::post('auth/kakao', [KakaoController::class, 'authenticate']);
 
