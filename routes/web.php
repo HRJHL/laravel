@@ -45,6 +45,10 @@ Route::post('/chat', [ChatController::class, 'chat']);
 
 Route::post('/chatM', [ChatController::class, 'chatM']);
 
+Route::post('/talk', [ChatController::class, 'talk']);
+
+Route::post('/talkM', [ChatController::class, 'talkM']);
+
 Route::post('auth/kakao', [KakaoController::class, 'authenticate']);
 
 Route::get('/auth/kakao/callback', [KakaoController::class, 'handleCallback']);
